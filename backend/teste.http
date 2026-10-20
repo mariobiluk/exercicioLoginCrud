@@ -1,0 +1,35 @@
+### 1. Cadastrar Ciclista 1 - Marcos (Público)
+POST http://localhost:3000/cliente
+Content-Type: application/json
+
+{
+    "nome": "Roberto",
+    "email": "roberto@gmail.com",
+    "senha": "987",
+    "cpf": "98765432112",
+    "endereco": "Rua das Aves, 123",
+    "telefone": "48123456789"
+}
+
+### 2. Cadastrar Ciclista 2 - Mario (Público)
+POST http://localhost:3000/cliente
+Content-Type: application/json
+
+{
+    "nome": "Mario",
+    "email": "mario@gmail.com",
+    "senha": "456",
+    "cpf": "08617528990",
+    "endereco": "Rua Ipe Amarelo, 222",
+    "telefone": "48999545106"
+}
+
+### 3. Fazer Login com Marcos (Armazena o token automaticamente)
+# @name loginReq
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "roberto@gmail.com",
+    "senha": "987"
+}

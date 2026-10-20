@@ -1,0 +1,42 @@
+const Cliente = require('./Cliente')
+const Veiculo = require('./Veiculo')
+const Agendamento = require('./Agendamento')
+const db = require('../db/conn')
+
+Cliente.hasMany(Veiculo, {
+    foreignKey: 'idCliente',
+    as: 'veiculoCliente',
+    onDelete: 'CASCADE'
+})
+
+Veiculo.belongsTo(Cliente, {
+    foreignKey: 'idCliente',
+    as: 'clienteVeiculo',
+    allowNull: false
+})
+
+Cliente.hasMany(Agendamento, {
+    foreignKey: 'idCliente',
+    as: 'agendamentoCliente',
+    onDelete: 'CASCADE'
+})
+
+Agendamento.belongsTo(Cliente, {
+    foreignKey: 'idCliente',
+    as: 'clienteAgendamento',
+    allowNull: false
+})
+
+Veiculo.hasMany(Agendamento, {
+    foreignKey: 'idVeiculo',
+    as: 'agendamentoVeiculo',
+    onDelete: 'CASCADE'
+})
+
+Agendamento.belongsTo(Veiculo, {
+    foreignKey: 'idVeiculo',
+    as: 'veiculoAgendamento',
+    allowNull: false
+})
+
+module.exports = { Cliente, Veiculo, Agendamento }
